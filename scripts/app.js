@@ -11,7 +11,7 @@ $(document).on("ready", function() {
                 lat: 37.78,
                 lng: -122.44
             },
-            zoom: 8
+            zoom: 1
         });
 
     $.ajax({
@@ -39,9 +39,12 @@ $(document).on("ready", function() {
     }
 
     function deliverTitle(feature) {
-        var timeSince = Math.round((Date.now() - feature.properties.time) / 3600000) + ' hours since';
+        var timeSince = Math.round((Date.now() - feature.properties.time) / 3600000) + ' hours since',
+            word = feature.properties.title,
+            newWord = word.slice(word.indexOf('of') + 3, word.length);
+
         var deliver = htmlTemplate({
-            title: feature.properties.title,
+            title: newWord,
             time: timeSince
         });
         $('#info').append(deliver);
@@ -49,15 +52,16 @@ $(document).on("ready", function() {
     }
 
     function plotCoordinates(feature) {
-        console.log(feature.geometry.coordinates[0], feature.geometry.coordinates[1]);
-        new google.maps.Marker({
-            position: {
-                lng: feature.geometry.coordinates[0],
-                lat: feature.geometry.coordinates[1]
-            },
-            map: map
-        });
-
+        var long = feature.geometry.coordinates[0],
+            lat = feature.geometry.coordinates[1];
+            console.log(long, lat);
+              var marker =  new google.maps.Marker({
+                position: {
+                    lng: long,
+                    lat: lat
+                },
+                map: map
+            })
     }
 
 });

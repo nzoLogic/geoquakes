@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <!-- set viewport to device width to allow responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,24 +25,26 @@
     <script src="scripts/app.js"></script>
 
     <title>Quake Watch</title>
-  </head>
-  <body>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div id="map"></div>
+</head>
 
-          </div>
-          <div class="col-md-6">
-            <div id="info">
-              <h1>Earthquakes from the past week:</h1>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="map"></div>
+
             </div>
-          </div>
+            <div class="col-md-6">
+                <div id="info">
+                    <h1>Earthquakes from the past week:</h1>
+                </div>
+            </div>
         </div>
         <script id='htmlSource' type='text/x-handlebars-template'>
-          <p>{{title}} / {{time}}</p>
+            <p>{{title}} / {{time}}</p>
         </script>
 
-      </div>
-  </body>
+    </div>
+</body>
+
 </html>
